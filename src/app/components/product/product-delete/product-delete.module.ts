@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import {MatDialogModule} from '@angular/material/dialog'
 
 const routes: Routes = [
   {
@@ -17,7 +16,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ProductDeleteComponent],
+  declarations: [
+    ProductDeleteComponent,
+    
+  ],
   imports: [
     CommonModule,
     MatCardModule,
@@ -25,7 +27,6 @@ const routes: Routes = [
     MatFormFieldModule,
     FormsModule,
     MatButtonModule,
-    MatDialogModule,
     RouterModule.forChild(routes)
   ]
 })

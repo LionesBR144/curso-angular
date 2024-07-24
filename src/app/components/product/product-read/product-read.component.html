@@ -27,11 +27,12 @@
                     edit
                 </i>
             </a>
-            <a routerLink="/products/delete/{{ row.id }}" class="delete">
-                <i class="material-icons">
+            <a class="delete">
+                <i (click)="confirmDialog()" class="material-icons">
                     delete
                 </i>
             </a>
+            <!-- <mat-icon (click)="confirmDialog()">delete_forever</mat-icon> -->
         </td>
       </ng-container>
   

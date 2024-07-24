@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product-create/product.model';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
   selector: 'app-product-delete',
   templateUrl: './product-delete.component.html',
@@ -10,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDeleteComponent implements OnInit {
 
-  product: Product
+  product: Product;
 
   constructor(
     private productService: ProductService, 
@@ -35,4 +34,5 @@ export class ProductDeleteComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/products']);
   }
+
 }

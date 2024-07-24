@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductReadComponent } from 'src/app/components/product/product-read/product-read.component';
 import { MatTableModule } from '@angular/material/table';
+import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -16,12 +18,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProductCrudComponent,
-    ProductReadComponent
+    ProductReadComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
     MatButtonModule,
     MatTableModule,
+    MatDialogModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

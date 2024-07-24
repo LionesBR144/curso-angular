@@ -43,7 +43,7 @@ registerLocaleData(localePt);
     RedDirective,
     ForDirective,
     ProductRead2Component,
-    MaskDirective
+    MaskDirective,
   ],
   imports: [
     BrowserModule,
