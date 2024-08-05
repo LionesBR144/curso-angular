@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ɵɵpureFunction0 } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +30,9 @@ import { ProductCreateModule } from "./components/product/product-create/product
 import { ProductCrudModule } from "./views/product-crud/product-crud.module";
 import { ProductDeleteModule } from "./components/product/product-delete/product-delete.module";
 import { ProductUpdateModule } from "./components/product/product-update/product-update.module";
+import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.module';
+import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
 registerLocaleData(localePt);
 
 
@@ -43,7 +46,7 @@ registerLocaleData(localePt);
     RedDirective,
     ForDirective,
     ProductRead2Component,
-    MaskDirective,
+    MaskDirective
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,9 @@ registerLocaleData(localePt);
     ProductCreateModule,
     ProductCrudModule,
     ProductDeleteModule,
-    ProductUpdateModule
+    ProductUpdateModule,
+    FornecedorCrudModule,
+    FornecedorCreateModule
   ],
   providers: [{
     provide: LOCALE_ID,

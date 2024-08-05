@@ -23,6 +23,15 @@ const routes: Routes = [
   {
     path: "products/delete/:id",
     loadChildren: () => import('./components/product/product-delete/product-delete.module').then(m => m.ProductDeleteModule)
+  },
+  {
+    path: "fornecedor",
+    loadChildren: () => import('./views/fornecedor-crud/fornecedor-crud.module').then(m => m.FornecedorCrudModule)
+  },
+  {
+    path: "fornecedor/create",
+    loadChildren: () => import('./components/fornecedor/fornecedor-create/fornecedor-create.module').then(m => m.FornecedorCreateModule)
+
   }
 ];
 
