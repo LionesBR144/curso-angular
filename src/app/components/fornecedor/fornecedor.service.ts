@@ -23,4 +23,18 @@ export class FornecedorService {
   create(fornecedor: Fornecedor): Observable<Fornecedor> {
     return this.http.post<Fornecedor>(this.baseUrl, fornecedor);
   }
+  
+  read(): Observable<Fornecedor[]> {
+    return this.http.get<Fornecedor[]>(this.baseUrl);
+  }
+
+  update(fornecedor: Fornecedor): Observable<Fornecedor> {
+    const url = `${this.baseUrl}/${fornecedor.id}`;
+    return this.http.put<Fornecedor>(url, fornecedor);
+  }
+
+  delete(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }

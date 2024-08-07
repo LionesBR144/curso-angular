@@ -31,8 +31,11 @@ const routes: Routes = [
   {
     path: "fornecedor/create",
     loadChildren: () => import('./components/fornecedor/fornecedor-create/fornecedor-create.module').then(m => m.FornecedorCreateModule)
-
-  }
+  },
+  {
+    path: "fornecedor/update/:id",
+    loadChildren: () => import('./components/fornecedor/fornecedor-update/fornecedor-update.module').then(m => m.FornecedorUpdateModule)
+  },
 ];
 
 @NgModule({

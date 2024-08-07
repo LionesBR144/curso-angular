@@ -38,8 +38,8 @@
         <mat-error *ngIf="passwordFormControl.hasError('required')">
           Senha <strong>obrigatória</strong>.
         </mat-error>
-        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
-          A senha deve ter pelo menos 6 caracteres.
+        <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+          A senha deve ter pelo menos 9 caracteres.
         </mat-error>
       </mat-form-field>
       

@@ -31,8 +31,8 @@ import { ProductCrudModule } from "./views/product-crud/product-crud.module";
 import { ProductDeleteModule } from "./components/product/product-delete/product-delete.module";
 import { ProductUpdateModule } from "./components/product/product-update/product-update.module";
 import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.module';
-import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
+import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
 registerLocaleData(localePt);
 
 
@@ -46,7 +46,8 @@ registerLocaleData(localePt);
     RedDirective,
     ForDirective,
     ProductRead2Component,
-    MaskDirective
+    MaskDirective,
+    FornecedorDeleteComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-title class="titulo">Alterar Fornecedor</mat-card-title>
+    <form [formGroup]="fornecedorForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="fornecedorForm.get('email').hasError('required')">
+          Email é obrigatório.
+        </mat-error>
+        <mat-error *ngIf="fornecedorForm.get('email').hasError('email')">
+          Por favor, insira um email válido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Senha" formControlName="password" type="text">
+        <mat-error *ngIf="fornecedorForm.get('password').hasError('required')">
+          Senha é obrigatória.
+        </mat-error>
+        <mat-error *ngIf="fornecedorForm.get('password').hasError('maxlength')">
+          A senha deve ter pelo menos 9 caracteres.
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button class="update" (click)="updateFornecedor()" color="primary">
+      Atualizar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()" color="warn">
+      Cancelar
+    </button>
+  </mat-card>

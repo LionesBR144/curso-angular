@@ -20,7 +20,7 @@ export class FornecedorCreateComponent implements OnInit {
   ) {
     this.fornecedorForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.maxLength(9)])
     });
   }
 
