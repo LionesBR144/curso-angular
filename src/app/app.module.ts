@@ -32,7 +32,6 @@ import { ProductDeleteModule } from "./components/product/product-delete/product
 import { ProductUpdateModule } from "./components/product/product-update/product-update.module";
 import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.module';
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
-import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
 registerLocaleData(localePt);
 
 
@@ -47,7 +46,6 @@ registerLocaleData(localePt);
     ForDirective,
     ProductRead2Component,
     MaskDirective,
-    FornecedorDeleteComponent,
   ],
   imports: [
     BrowserModule,
