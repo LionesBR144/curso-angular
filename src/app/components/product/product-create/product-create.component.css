@@ -7,3 +7,9 @@ button {
 margin-top: 20px;
 margin-right: 15px;
 }
+
+.input-new {
+   min-width: 200px;
+   max-width: 500px;
+   width: 100%;
+}
