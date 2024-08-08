@@ -12,7 +12,7 @@ import { FornecedorService } from '../fornecedor.service';
 export class FornecedorCreateComponent implements OnInit {
 
   fornecedorForm: FormGroup;
-  hide = true;
+  
 
   constructor(
     private router: Router,
