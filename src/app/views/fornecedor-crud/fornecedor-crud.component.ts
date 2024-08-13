@@ -8,13 +8,22 @@ import { Router } from '@angular/router';
 })
 export class FornecedorCrudComponent implements OnInit {
 
+  searchQuery: string = '';
+
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   navigateToProductCreate(): void {
-    this.router.navigate(['/fornecedor/create'])
+    this.router.navigate(['/fornecedor/create']);
   }
 
+  onSearchChange(searchValue: string): void {
+    this.searchQuery = searchValue;
+  }
+
+  clearSearch(): void {
+    this.searchQuery = '';
+    this.onSearchChange('');
+  }
 }

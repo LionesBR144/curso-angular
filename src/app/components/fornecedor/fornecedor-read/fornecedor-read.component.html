@@ -1,5 +1,5 @@
-<mat-card class="mat-elevation-z4">
-    <table mat-table [dataSource]="dataSource">
+<div class="mat-elevation-z4">
+    <table mat-table [dataSource]="filteredFornecedores">
       <!-- Id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -34,4 +34,4 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </mat-card>
+  </div>

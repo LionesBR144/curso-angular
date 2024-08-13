@@ -7,6 +7,9 @@ import { FornecedorReadComponent } from 'src/app/components/fornecedor/fornecedo
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialog2Component } from 'src/app/components/confirm-dialog2/confirm-dialog2.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   {
@@ -24,8 +27,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MatButtonModule,
+    MatInputModule,
     MatTableModule,
     MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

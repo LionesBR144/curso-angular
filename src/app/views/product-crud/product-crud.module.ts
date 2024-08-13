@@ -7,6 +7,10 @@ import { ProductReadComponent } from 'src/app/components/product/product-read/pr
 import { MatTableModule } from '@angular/material/table';
 import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -24,8 +28,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MatButtonModule,
+    MatInputModule,
     MatTableModule,
     MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatIconModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

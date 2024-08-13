@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Fornecedor } from '../fornecedor.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { FornecedorService } from '../fornecedor.service';
@@ -16,16 +16,21 @@ export class FornecedorReadComponent implements OnInit {
   fornecedores: Fornecedor[] = [];
   displayedColumns: string[] = ['id', 'email', 'password', 'action'];
   dataSource = new MatTableDataSource<Fornecedor>();
+  @Input() filter: string = '';
+  filteredFornecedores: Fornecedor[] = [];
 
   constructor(
     private fornecedorService: FornecedorService,
     public dialog: MatDialog,
     private router: Router
-
   ) {}
 
   ngOnInit(): void {
     this.getList();
+  }
+
+  ngOnChanges(): void {
+    this.applyFilter();
   }
 
   confirmDialog2(id: number): void {
@@ -40,7 +45,6 @@ export class FornecedorReadComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      console.log("[ConfirmDialog2()]", dialogResult)
       if (dialogResult) {
         this.deleteFornecedor(id);
       }
@@ -57,9 +61,20 @@ export class FornecedorReadComponent implements OnInit {
   getList(): void {
     this.fornecedorService.read().subscribe(fornecedores => {
       this.fornecedores = fornecedores;
-      this.dataSource.data = fornecedores;
-      console.log(fornecedores);
+      this.applyFilter(); // Apply filter whenever the list is loaded
     });
+  }
+
+  applyFilter(): void {
+    if (!this.filter) {
+      this.filteredFornecedores = this.fornecedores;
+    } else {
+      this.filteredFornecedores = this.fornecedores.filter(fornecedor =>
+        fornecedor.email.toLowerCase().includes(this.filter.toLowerCase()) ||
+        fornecedor.id.toString().includes(this.filter)
+      );
+    }
+    this.dataSource.data = this.filteredFornecedores;
   }
 }
 

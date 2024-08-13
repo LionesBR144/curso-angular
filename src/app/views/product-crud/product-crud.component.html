@@ -1,6 +1,12 @@
-<button mat-raised-button (click)="navigateToProductCreate()" 
-    color="primary">
+<mat-form-field appearance="outline">
+  <mat-label>Pesquisa Produto</mat-label>
+  <input matInput [(ngModel)]="searchQuery" placeholder="coloque seu produto aqui" (ngModelChange)="onSearchChange($event)">
+</mat-form-field>
+<button class="clear" mat-raised-button color="warn" (click)="clearSearch()" *ngIf="searchQuery">
+  Limpar
+</button>
+<app-product-read [filter]="searchQuery"></app-product-read>
+
+<button mat-raised-button (click)="navigateToProductCreate()" color="primary">
     Novo Produto
 </button>
-
-<app-product-read></app-product-read>
