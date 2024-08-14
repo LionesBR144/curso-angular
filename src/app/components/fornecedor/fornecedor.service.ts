@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Fornecedor } from './fornecedor.model';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class FornecedorService {
   
   baseUrl = "http://localhost:3333/api/fornecedor"
+  maxFornecedores = 10;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
   
@@ -20,8 +22,20 @@ export class FornecedorService {
       verticalPosition: "top"
     });
   }
+
   create(fornecedor: Fornecedor): Observable<Fornecedor> {
-    return this.http.post<Fornecedor>(this.baseUrl, fornecedor);
+    return this.read().pipe(
+      switchMap(fornecedores => {
+        if (fornecedores.length >= this.maxFornecedores) {
+          this.showMessage('Número máximo de fornecedores alcançado.');
+          return throwError(() => new Error('Número máximo de fornecedores alcançado.'));
+        }
+        return this.http.post<Fornecedor>(this.baseUrl, fornecedor);
+      }),
+      catchError(error => {
+        return throwError(() => error);
+      })
+    );
   }
   
   read(): Observable<Fornecedor[]> {
