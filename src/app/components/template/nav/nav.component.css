@@ -1,17 +1,30 @@
-.sidenav {
-    background-color: #3F51B5;
+    .sidenav {
     width: 200px;
-}
-
-.sidenav a {
+    background-color: #3F51B5;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
     color: #FFF;
-}
- .sidenav i {
+  }
+  
+  .content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidenav i {
     padding-right: 10px;
  }
 
-.content {
-    padding: 16px;
-    background-color: #FFF;
+ .container.full-height {
+  height: calc(90vh - 64px); /* 64px é a altura do header */
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-sidenav-content {
+  flex: 1; /* Permite que o conteúdo ocupe todo o espaço disponível */
 }
 

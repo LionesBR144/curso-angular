@@ -66,13 +66,15 @@ export class FornecedorReadComponent implements OnInit {
   }
 
   applyFilter(): void {
+    const maxFornecedores = 10; // Defina o número máximo de fornecedores a ser exibido
+  
     if (!this.filter) {
-      this.filteredFornecedores = this.fornecedores;
+      this.filteredFornecedores = this.fornecedores.slice(0, maxFornecedores);
     } else {
       this.filteredFornecedores = this.fornecedores.filter(fornecedor =>
         fornecedor.email.toLowerCase().includes(this.filter.toLowerCase()) ||
         fornecedor.id.toString().includes(this.filter)
-      );
+      ).slice(0, maxFornecedores);
     }
     this.dataSource.data = this.filteredFornecedores;
   }

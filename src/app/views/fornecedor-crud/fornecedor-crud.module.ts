@@ -10,6 +10,7 @@ import { ConfirmDialog2Component } from 'src/app/components/confirm-dialog2/conf
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatPaginatorModule,
     FormsModule,
     RouterModule.forChild(routes)
   ],

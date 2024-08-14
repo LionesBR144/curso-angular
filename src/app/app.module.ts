@@ -32,6 +32,7 @@ import { ProductDeleteModule } from "./components/product/product-delete/product
 import { ProductUpdateModule } from "./components/product/product-update/product-update.module";
 import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.module';
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
+import { MatIconModule } from '@angular/material/icon';
 registerLocaleData(localePt);
 
 
@@ -64,6 +65,7 @@ registerLocaleData(localePt);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatIconModule,
     ProductCreateModule,
     ProductCrudModule,
     ProductDeleteModule,
