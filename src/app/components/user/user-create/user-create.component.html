@@ -1,0 +1,68 @@
+<mat-card>
+    <mat-card-title class="titulo">Novo Usuário</mat-card-title>
+    
+    <form [formGroup]="userForm" class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome Completo</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="fullName"
+          placeholder="Insira seu nome completo"
+        />
+        <mat-error *ngIf="userForm.get('fullName')?.hasError('required')">
+          Nome completo <strong>obrigatório</strong>.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Insira seu email"
+        />
+        <mat-error *ngIf="userForm.get('email')?.hasError('email') && !userForm.get('email')?.hasError('required')">
+          Por favor, entre com um email válido.
+        </mat-error>
+        <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+          Email <strong>obrigatório</strong>.
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Entre com sua senha</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="Insira sua senha"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+          Senha <strong>obrigatória</strong>.
+        </mat-error>
+        <mat-error *ngIf="userForm.get('password')?.hasError('maxlength')">
+          A senha deve ter pelo menos 9 caracteres.
+        </mat-error>
+      </mat-form-field>
+      
+      <div class="button-group">
+        <button mat-raised-button class="save" (click)="createUser()" color="primary">
+          Salvar
+        </button>
+        <button mat-raised-button (click)="cancel()" color="warn">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>

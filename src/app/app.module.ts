@@ -33,6 +33,7 @@ import { ProductUpdateModule } from "./components/product/product-update/product
 import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.module';
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './components/login/login.component';
 registerLocaleData(localePt);
 
 
@@ -47,6 +48,7 @@ registerLocaleData(localePt);
     ForDirective,
     ProductRead2Component,
     MaskDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

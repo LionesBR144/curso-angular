@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product-create/product.model';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   baseUrl = "http://localhost:3333/api/products"
+  maxProducts = 10
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
   
@@ -22,7 +24,19 @@ export class ProductService {
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product);
+    return this.read().pipe(
+      switchMap(products => {
+        if (products.length >= this.maxProducts) {
+          this.showMessage('Número máximo de produtos alcançado.');
+          return throwError(() => new Error('Número máximo de produtos alcançado.'));
+        }
+        return this.http.post<Product>(this.baseUrl, product);
+      }),
+      catchError(error => {
+        // Trate o erro conforme necessário
+        return throwError(() => error);
+      })
+    );
   }
 
   read(): Observable<Product[]>{
