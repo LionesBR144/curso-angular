@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,21 +10,23 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginData = { email: '', password: '' };
+  loginForm: FormGroup;
 
-  constructor(private http: HttpClient, private snackBar: MatSnackBar, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
 
   onSubmit() {
-    const loginUrl = 'http://localhost:3333/api/login';
-    this.http.post(loginUrl, this.loginData).subscribe(
-      (response: any) => {
-        localStorage.setItem('token', response.token); // Armazene o token ou qualquer outra lógica necessária
-        this.snackBar.open('Login successful!', 'Close', { duration: 3000 });
-        this.router.navigate(['/home']); // Redireciona para a tela Home
-      },
-      (error) => {
-        this.snackBar.open('Login failed!', 'Close', { duration: 3000 });
-      }
-    );
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (response:any) => {
+          localStorage.setItem('authToken', response.token.token);
+          this.router.navigate(['/home']);
+        }
+      });
+    }
   }
 }

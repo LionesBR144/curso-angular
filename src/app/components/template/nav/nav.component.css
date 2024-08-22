@@ -19,7 +19,7 @@
  }
 
  .container.full-height {
-  height: calc(90vh - 64px); /* 64px é a altura do header */
+  height: calc(90vh - 1px); /* 64px é a altura do header */
   display: flex;
   flex-direction: column;
 }
@@ -27,4 +27,9 @@
 .mat-sidenav-content {
   flex: 1; /* Permite que o conteúdo ocupe todo o espaço disponível */
 }
+
+/* mat-sidenav {
+  height: 20rem;
+
+} */
 

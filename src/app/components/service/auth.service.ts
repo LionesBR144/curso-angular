@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,11 +6,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  private baseUrl = 'http://localhost:3333/api'; // Certifique-se de que a URL esteja correta
 
-  constructor(private router: Router) { }
+  constructor(private http: HttpClient) { }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+  login(credentials: { email: string, password: string }) {
+    return this.http.post(`${this.baseUrl}/login`, credentials);
   }
 }

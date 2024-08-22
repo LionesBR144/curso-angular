@@ -16,7 +16,7 @@ import { ForDirective } from './directives/for.directive';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { ProductRead2Component } from './components/product/product-read2/product-read2.component';
@@ -48,7 +48,7 @@ registerLocaleData(localePt);
     ForDirective,
     ProductRead2Component,
     MaskDirective,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +73,8 @@ registerLocaleData(localePt);
     ProductDeleteModule,
     ProductUpdateModule,
     FornecedorCrudModule,
-    FornecedorCreateModule
+    FornecedorCreateModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: LOCALE_ID,

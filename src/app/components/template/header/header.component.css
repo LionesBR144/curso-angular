@@ -1,7 +1,7 @@
-.header {
+/* .header {
     display: flex;
     align-items: center;
-}
+} */
 
 .header a {
     display: flex;
@@ -12,4 +12,23 @@
 .header .logo {
     max-height: 62px;
 
+}
+.layout-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* height: 100vh; Garante que o footer fique na parte inferior da tela */
+    flex-direction: column;
+}
+
+.header {
+    align-self: flex-start; /* Alinha o header à esquerda */
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    margin-left: 52rem;
+    font-size: 1.1rem;
+    font-weight: 500;   
 }
