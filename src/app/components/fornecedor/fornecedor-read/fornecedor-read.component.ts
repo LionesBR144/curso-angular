@@ -3,8 +3,8 @@ import { Fornecedor } from '../fornecedor.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { FornecedorService } from '../fornecedor.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialog2Component, ConfirmDialog2Model } from '../../confirm-dialog2/confirm-dialog2.component';
 import { Router } from '@angular/router';
+import { ConfirmDialogComponent, ConfirmDialogModel } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-fornecedor-read',
@@ -33,12 +33,12 @@ export class FornecedorReadComponent implements OnInit {
     this.applyFilter();
   }
 
-  confirmDialog2(id: number): void {
+  confirmDialog(id: number): void {
     const message = `Deseja realmente excluir?`;
 
-    const dialogData = new ConfirmDialog2Model("Confirmar Exclusão", message);
+    const dialogData = new ConfirmDialogModel("Confirmar Exclusão", message);
 
-    const dialogRef = this.dialog.open(ConfirmDialog2Component, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: "350px",
       height:"250px",
       data: dialogData

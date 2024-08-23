@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -23,7 +24,6 @@ const routes: Routes = [
   declarations: [
     ProductCrudComponent,
     ProductReadComponent,
-    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +34,7 @@ const routes: Routes = [
     MatFormFieldModule,
     FormsModule,
     MatIconModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

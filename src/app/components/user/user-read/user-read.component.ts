@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
-import { ConfirmDialog3Component, ConfirmDialog3Model } from '../../confirm-dialog3/confirm-dialog3.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent, ConfirmDialogModel } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-user-read',
@@ -22,12 +22,12 @@ export class UserReadComponent implements OnInit {
     this.getList();
   }
 
-  confirmDialog3(id: number): void {
+  confirmDialog(id: number): void {
     const message = `Deseja realmente excluir?`;
 
-    const dialogData = new ConfirmDialog3Model("Confirmar Exclusão", message);
+    const dialogData = new ConfirmDialogModel("Confirmar Exclusão", message);
 
-    const dialogRef = this.dialog.open(ConfirmDialog3Component, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: "350px",
       height:"250px",
       data: dialogData

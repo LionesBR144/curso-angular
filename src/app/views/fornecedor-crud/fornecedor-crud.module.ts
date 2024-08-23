@@ -6,11 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { FornecedorReadComponent } from 'src/app/components/fornecedor/fornecedor-read/fornecedor-read.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ConfirmDialog2Component } from 'src/app/components/confirm-dialog2/confirm-dialog2.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -22,7 +22,6 @@ const routes: Routes = [
   declarations: [
     FornecedorCrudComponent,
     FornecedorReadComponent,
-    ConfirmDialog2Component
 
   ],
   imports: [
@@ -34,6 +33,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatPaginatorModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

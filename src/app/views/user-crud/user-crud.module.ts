@@ -10,7 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { UserReadComponent } from 'src/app/components/user/user-read/user-read.component';
-import { ConfirmDialog3Component } from 'src/app/components/confirm-dialog3/confirm-dialog3.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -23,7 +23,6 @@ const routes: Routes = [
   declarations: [
     UserCrudComponent,
     UserReadComponent,
-    ConfirmDialog3Component
   ],
   imports: [
     CommonModule,
@@ -34,6 +33,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatPaginatorModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
