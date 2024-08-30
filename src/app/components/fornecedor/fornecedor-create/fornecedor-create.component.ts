@@ -44,7 +44,7 @@ export class FornecedorCreateComponent implements OnInit {
 
     this.fornecedorService.create(fornecedor).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor cadastrado com sucesso!');
-      this.router.navigate(['/fornecedor']);
+      this.router.navigate(['/fornecedores']);
     });
   }
 

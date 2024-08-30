@@ -35,17 +35,17 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "fornecedor",
+    path: "fornecedores",
     loadChildren: () => import('./views/fornecedor-crud/fornecedor-crud.module').then(m => m.FornecedorCrudModule),
     canActivate: [AuthGuard]
   },
   {
-    path: "fornecedor/create",
+    path: "fornecedores/create",
     loadChildren: () => import('./components/fornecedor/fornecedor-create/fornecedor-create.module').then(m => m.FornecedorCreateModule),
     canActivate: [AuthGuard]
   },
   {
-    path: "fornecedor/update/:id",
+    path: "fornecedores/update/:id",
     loadChildren: () => import('./components/fornecedor/fornecedor-update/fornecedor-update.module').then(m => m.FornecedorUpdateModule),
     canActivate: [AuthGuard]
   },

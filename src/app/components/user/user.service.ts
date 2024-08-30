@@ -47,4 +47,9 @@ export class UserService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<void>(url);
   }
+
+  getUserFornecedores(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}/fornecedores`);
+  }
+
 }

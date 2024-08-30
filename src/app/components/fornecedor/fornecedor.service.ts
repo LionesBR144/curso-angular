@@ -10,7 +10,7 @@ import { catchError, switchMap } from 'rxjs/operators';
 })
 export class FornecedorService {
   
-  baseUrl = "http://localhost:3333/api/fornecedor"
+  baseUrl = "http://localhost:3333/api/fornecedores";
   maxFornecedores = 10;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }

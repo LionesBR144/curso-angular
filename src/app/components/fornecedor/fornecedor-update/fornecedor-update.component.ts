@@ -42,12 +42,12 @@ export class FornecedorUpdateComponent implements OnInit {
 
     this.fornecedorService.update(this.fornecedorForm.value).subscribe(() => {
       this.fornecedorService.showMessage('Fornecedor atualizado com sucesso!');
-      this.router.navigate(['/fornecedor']);
+      this.router.navigate(['/fornecedores']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/fornecedor']);
+    this.router.navigate(['/fornecedores']);
   }
 }
 

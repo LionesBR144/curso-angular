@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID, ɵɵpureFunction0 } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,8 @@ import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.mo
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
+import { FornecedorModalComponent } from './views/home/fornecedor-modal/fornecedor-modal.component';
+import { FornecedorModalModule } from './views/home/fornecedor-modal/fornecedor-modal.module';
 registerLocaleData(localePt);
 
 
@@ -48,7 +50,7 @@ registerLocaleData(localePt);
     ForDirective,
     ProductRead2Component,
     MaskDirective,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -74,12 +76,13 @@ registerLocaleData(localePt);
     ProductUpdateModule,
     FornecedorCrudModule,
     FornecedorCreateModule,
+    FornecedorModalModule,
     ReactiveFormsModule
   ],
   providers: [{
     provide: LOCALE_ID,
     useValue: 'pt-BR'
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

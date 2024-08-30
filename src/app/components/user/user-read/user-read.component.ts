@@ -12,9 +12,11 @@ import { ConfirmDialogComponent, ConfirmDialogModel } from '../../confirm-dialog
 })
 export class UserReadComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fullName', 'email','password', 'action'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', 'password', 'action'];
   dataSource = new MatTableDataSource<User>();
+  fornecedoresDataSource = new MatTableDataSource<any>();
   users: User[] = [];
+  selectedUserFornecedores: any;
 
   constructor(private userService: UserService, public dialog: MatDialog) {}
 
@@ -29,7 +31,7 @@ export class UserReadComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: "350px",
-      height:"250px",
+      height: "250px",
       data: dialogData
     });
 
@@ -51,6 +53,17 @@ export class UserReadComponent implements OnInit {
     this.userService.read().subscribe(users => {
       this.users = users;
       this.dataSource.data = users;
+    });
+  }
+
+  viewFornecedores(userId: number): void {
+    this.userService.getUserFornecedores(userId).subscribe(data => {
+      console.log('Dados recebidos:', data); // Verifique a estrutura dos dados
+      this.selectedUserFornecedores = data;
+      this.fornecedoresDataSource.data = data.fornecedores;
+      console.log('Fornecedores:', this.fornecedoresDataSource.data); // Verifique os dados no dataSource
+    }, error => {
+      console.error('Erro ao carregar fornecedores:', error);
     });
   }
 }
