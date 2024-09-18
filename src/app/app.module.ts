@@ -34,7 +34,6 @@ import { FornecedorCrudModule } from './views/fornecedor-crud/fornecedor-crud.mo
 import { FornecedorCreateModule } from './components/fornecedor/fornecedor-create/fornecedor-create.module';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
-import { FornecedorModalComponent } from './views/home/fornecedor-modal/fornecedor-modal.component';
 import { FornecedorModalModule } from './views/home/fornecedor-modal/fornecedor-modal.module';
 registerLocaleData(localePt);
 
